@@ -11,8 +11,9 @@
               shell: cd /home/ansible/playbook
               
             - name: install Docker
-              apt: docker
-              state: lastest
+              apt: 
+                          name: docker
+                          state: latest
               
             - name: Stop previous docker version
               docker_container:
