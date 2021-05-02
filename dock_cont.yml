@@ -10,10 +10,13 @@
             - name: change directory 
               shell: cd /home/ansible/playbook
               
-            - name: install Docker
+            - name: install Docker and docker-py
               apt: 
-                          name: docker
+                          name: "{{ item }}"
                           state: latest
+              with_items:
+                        - docker
+                          python3-pip
               
             - name: Stop previous docker version
               docker_container:
