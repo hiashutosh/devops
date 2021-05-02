@@ -1,0 +1,35 @@
+---
+- hosts: all
+  vars:
+            - ansible_sudo_pass: “<node-pass>”
+  user: ansadmin
+  become: true
+  connection: ssh
+  
+  tasks:
+            - name: Stop previous docker version
+              docker_container:
+                          name: cont_1
+                          
+                          state: stopped
+            - name: remove stopped container
+              docker_container:
+                          name: cont_1
+                          
+                          state: absent
+            - name: remove docker image
+              docker_image:
+                          name: img2
+                          
+                          state: absent
+            - name: Build Docker image from Dockerfile
+               docker_image:
+                          name: im2
+                          
+                          state: build
+            - name: Tag and push to dockerhub
+               docker_image:
+                          name: img2
+                          repository: yadavashu/img2
+            - name: run container from image
+              shell: docker run -d --name cont_1 -p 8090:8080 yadavashu/img2
