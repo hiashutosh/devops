@@ -7,6 +7,10 @@
   connection: ssh
   
   tasks:
+            - name: install Docker
+              apt: docker
+              state: lastest
+              
             - name: Stop previous docker version
               docker_container:
                           name: cont_1
@@ -25,7 +29,7 @@
             - name: Build Docker image from Dockerfile
                docker_image:
                           name: im2
-                          
+                          path: /home/docker
                           state: build
             - name: Tag and push to dockerhub
                docker_image:
