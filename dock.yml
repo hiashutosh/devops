@@ -1,6 +1,7 @@
 ---
 - hosts: all
-  ansible_sudo_pass: "1234"
+  vars:
+     - ansible_sudo_pass: "1234"
   user: ansible
   become: true
   connection: ssh
