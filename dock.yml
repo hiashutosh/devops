@@ -6,9 +6,10 @@
   become: true
   connection: ssh
   tasks:
-  
+     - name: change build docker
+       shell: cd /home/ansible/playbook
      - name: build docker
-       shell: docker build -t demo34 /home/ansible/playbook
+       shell: docker build -t demo34 .
       
      - name: tag container latest
        shell: docker tag demo yadavashu/demo:latest
