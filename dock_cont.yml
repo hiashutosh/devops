@@ -12,11 +12,8 @@
               
             - name: install Docker and docker-py
               apt: 
-                          name: '{{ item }}'
+                          name: '['docker', 'python3-pip']
                           state: latest
-              with_items:
-                        - docker
-                        - python3-pip
               
             - name: Stop previous docker version
               docker_container:
