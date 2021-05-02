@@ -8,16 +8,13 @@
   tasks:
   
      - name: build docker
-       shell: docker build -t $JOB_NAME:v1.$BUILD_ID /home/ansible/playbook
-     - name: tag container in hub
-       shell: docker tag $JOB_NAME:v1.$BUILD_ID yadavashu/$JOB_NAME:v1.$BUILD_ID	  
+       shell: docker build -t demo34 /home/ansible/playbook
+      
      - name: tag container latest
-       shell: docker tag $JOB_NAME:v1.$BUILD_ID yadavashu/$JOB_NAME:latest
+       shell: docker tag demo yadavashu/demo:latest
+     
      - name: push prev container 
-       shell: docker push yadavashu/$JOB_NAME:v1.$BUILD_ID
-     - name: push prev container 
-       shell: docker push yadavashu/$JOB_NAME:latest
-     - name: push prev container  
-       shell: docker rmi $JOB_NAME:v1.$BUILD_ID yadavashu/$JOB_NAME:v1.$BUILD_ID yadavashu/$JOB_NAME:latest
+       shell: docker push yadavashu/demo:latest
+   
      - name: create docker image
-       shell: docker run -d --name cont_44 -p 8090:8080 yadavashu/$JOB_NAME:latest
+       shell: docker run -d --name cont_44 -p 8090:8080 yadavashu/demo:latest
