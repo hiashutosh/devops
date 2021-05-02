@@ -10,7 +10,7 @@
      - name: change build docker
        shell: cd /home/ansible/playbook
      - name: build docker
-       shell: docker build -t demo34 .
+       shell: docker build -t demo .
       
      - name: tag container latest
        shell: docker tag demo yadavashu/demo:latest
