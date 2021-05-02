@@ -4,6 +4,7 @@
      - ansible_sudo_pass: "1234"
   user: ansible
   become: true
+  become_method: sudo
   connection: ssh
   tasks:
      - name: change build docker
