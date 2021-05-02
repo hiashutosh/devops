@@ -29,7 +29,7 @@
             - name: Build Docker image from Dockerfile
                docker_image:
                           name: im2
-                          path: /home/docker
+                          path: /home/ansible/playbook
                           state: build
             - name: Tag and push to dockerhub
                docker_image:
