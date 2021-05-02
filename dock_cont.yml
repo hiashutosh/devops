@@ -7,6 +7,9 @@
   connection: ssh
   
   tasks:
+            - name: change directory 
+              shell: cd /home/ansible/playbook
+              
             - name: install Docker
               apt: docker
               state: lastest
@@ -29,7 +32,7 @@
             - name: Build Docker image from Dockerfile
                docker_image:
                           name: img2
-                          path: /home/ansible/playbook
+                          
                           state: build
             - name: Tag and push to dockerhub
                docker_image:
