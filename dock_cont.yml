@@ -12,7 +12,7 @@
               
             - name: install Docker and docker-py
               apt: 
-                          name: "{{ item }}"
+                          name: '{{ item }}'
                           state: latest
               with_items:
                         - docker
