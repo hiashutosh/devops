@@ -28,7 +28,7 @@
                           state: absent
             - name: Build Docker image from Dockerfile
                docker_image:
-                          name: im2
+                          name: img2
                           path: /home/ansible/playbook
                           state: build
             - name: Tag and push to dockerhub
