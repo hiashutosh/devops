@@ -12,7 +12,7 @@
               
             - name: install Docker and docker-py
               apt: 
-                          name: '['docker', 'python3-pip']
+                          name: ['docker', 'python3-pip']
                           state: latest
               
             - name: Stop previous docker version
