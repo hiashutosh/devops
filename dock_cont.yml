@@ -30,12 +30,12 @@
                           
                           state: absent
             - name: Build Docker image from Dockerfile
-               docker_image:
+              docker_image:
                           name: img2
                           
                           state: build
             - name: Tag and push to dockerhub
-               docker_image:
+              docker_image:
                           name: img2
                           repository: yadavashu/img2
             - name: run container from image
